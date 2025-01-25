@@ -10,35 +10,40 @@ interface FolderState {
 }
 
 const initialState: FolderState = {
-  folders: [
-    {
-      id: "1",
-      name: "aa",
-    },
-    {
-      id: "2",
-      name: "bb",
-    },
-    {
-      id: "3",
-      name: "zz",
-    },
-  ],
+  folders: [],
 };
-
-let folderId = 1;
 
 const folderSlice = createSlice({
   name: "folders",
   initialState,
   reducers: {
     createFolder: (state, action: PayloadAction<string>) => {
-      state.folders.push({ id: `${folderId++}`, name: action.payload });
+      const newFolder = {
+        id: Date.now().toString(),
+        name: action.payload
+      };
+      state.folders.push(newFolder);
     },
     deleteFolder: (state, action: PayloadAction<string>) => {
       state.folders = state.folders.filter(
         (folder) => folder.id !== action.payload
       );
+    },
+    renameFolder: (state, action: PayloadAction<{ id: string; newName: string }>) => {
+      const folder = state.folders.find(f => f.id === action.payload.id);
+      if (folder) {
+        folder.name = action.payload.newName;
+      }
+    },
+    duplicateFolder: (state, action: PayloadAction<string>) => {
+      const folder = state.folders.find(f => f.id === action.payload);
+      if (folder) {
+        const newFolder = {
+          id: Date.now().toString(),
+          name: `${folder.name} (copy)`
+        };
+        state.folders.push(newFolder);
+      }
     },
     moveFolder: (
       state,
@@ -57,7 +62,7 @@ const folderSlice = createSlice({
   },
 });
 
-export const { createFolder, deleteFolder, moveFolder } = folderSlice.actions;
+export const { createFolder, deleteFolder, renameFolder, duplicateFolder, moveFolder } = folderSlice.actions;
 
 const store = configureStore({
   reducer: {
