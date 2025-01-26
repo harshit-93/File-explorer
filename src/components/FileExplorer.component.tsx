@@ -35,10 +35,10 @@ const FileExplorerContainer = styled.div`
   box-sizing: border-box;
 `;
 
-const Folder = styled.div<{ dragging?: boolean }>`
+const Folder = styled.div<{ isDragging?: boolean }>`
   width: 100px;
   height: 100px;
-  background: ${props => props.dragging ? '#b8c4d9' : '#e3e8f0'};
+  background: ${props => props.isDragging ? '#b8c4d9' : '#e3e8f0'};
   border: 1px solid #d1d9e6;
   border-radius: 8px;
   display: flex;
@@ -47,7 +47,7 @@ const Folder = styled.div<{ dragging?: boolean }>`
   align-items: center;
   cursor: pointer;
   user-select: none;
-  opacity: ${props => props.dragging ? 0.6 : 1};
+  opacity: ${props => props.isDragging ? 0.6 : 1};
   &:hover {
     background: #d1d9e6;
   }
