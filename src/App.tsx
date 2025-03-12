@@ -1,9 +1,8 @@
-import React from "react";
 import "./App.css";
-import FileExplorer from "./components/FileExplorer.component";
+import ProductDetail from "./components/ProductDetail.component";
 
 function App() {
-  return <FileExplorer />;
+  return <ProductDetail />;
 }
 
 export default App;
