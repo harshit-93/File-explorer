@@ -14,6 +14,7 @@ import {
   JoinButton,
   JoinContainer,
   Message,
+  Name,
   SendButton,
   SendContainer,
   TitleId,
@@ -105,9 +106,13 @@ export default function ChatRoom() {
             {chatList.map((text, index) => {
               return (
                 text.body && (
-                  <Message key={index} align={text?.isSystemMessage}>
-                    {text.body}
-                  </Message>
+                  text?.isSystemMessage ? <Message key={index} align={text?.isSystemMessage}>
+                    {text.userNickname + " " + text.body}
+                  </Message> :
+                    <Message key={index} align={text?.isSystemMessage}>
+                      <Name>{text.userNickname}</Name>
+                      {text.body}
+                    </Message>
                 )
               );
             })}

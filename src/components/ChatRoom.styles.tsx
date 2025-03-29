@@ -60,3 +60,7 @@ export const TitleId = styled.p`
 export const SendButton = styled.button`
   width: 30%;
 `;
+
+export const Name = styled.div`
+  font-size: 10px;
+`;
