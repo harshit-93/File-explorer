@@ -36,6 +36,7 @@ export const ChatList = styled.ul`
 
 export const Message = styled.li<{ align?: boolean }>`
   text-align: ${(props) => (props.align ? "center" : "right")};
+  padding: 5px 10px;
 `;
 
 export const InputMessage = styled.input`
