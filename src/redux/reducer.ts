@@ -1,30 +1,18 @@
-import { createSlice, PayloadAction, configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-interface Folder {
-  id: string;
-  name: string;
-}
+const initialState = {};
 
-interface FolderState {
-  folders: Folder[];
-}
-
-const initialState: FolderState = {
-  folders: [],
-};
-
-const folderSlice = createSlice({
+const chatSlice = createSlice({
   name: "ChatRoom",
   initialState,
-  reducers: {
-  },
+  reducers: {},
 });
 
-export const {  } = folderSlice.actions;
+export const {} = chatSlice.actions;
 
 const store = configureStore({
   reducer: {
-    folders: folderSlice.reducer,
+    chats: chatSlice.reducer,
   },
 });
 
