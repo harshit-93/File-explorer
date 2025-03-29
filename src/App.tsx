@@ -1,8 +1,8 @@
 import "./App.css";
-import ProductDetail from "./components/ProductDetail.component";
+import ChatRoom from "./components/ChatRoom.component";
 
 function App() {
-  return <ProductDetail />;
+  return <ChatRoom />;
 }
 
 export default App;

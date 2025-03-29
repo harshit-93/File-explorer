@@ -16,6 +16,7 @@
     "react-redux": "^9.2.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.14",
+    "teleparty-websocket-lib": "https://github.com/watchparty-org/teleparty-websocket-lib",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
